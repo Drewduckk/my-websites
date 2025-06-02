@@ -1,0 +1,243 @@
+
+/* Reset default spacing on all elements */
+* {                             /* * means every element on the page */
+    margin: 0;                /* Removes default margin (e.g. around body) (margin = space outside of an element) */
+    padding: 0;               /* Removes default padding (padding = space between element(button) conntent and element(button) border) */
+    box-sizing: border-box;  /* Makes padding/border not affect total width/height */
+  }
+  
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;            /* Keeps it above other content */
+    padding: 10px 0;
+    background-color: rgba(255, 255, 255, 0.95); /* rgba stands for: Red, Green, Blue, Alpha / The last number (0.95) is the transparency / In this case White, 95% see-through */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Place the first item at the far left, the last item at the far right, and evenly space out the items in between. (Push logo left, buttons right) */
+    align-items: center;            /* Align vertically in the middle */
+  }
+
+.logo img {
+    display: block;
+    max-height: 200px;
+    margin: 10px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 5px; /* This will make all the children of .nav-buttons line up in a row (horizontally) by default. */
+    flex-wrap: wrap; /* This tells the flex: "If there’s not enough space on one line, allow the items to wrap onto the next line." */
+    margin: 10px;
+}
+
+.header-button {
+    display: inline-block;           /* Needed for padding to work on <a>. This makes the <a> tag behave like a block while still sitting inline with text. */
+    background-color: #fff5f7;
+    color: black;                  /* Sets the text color inside the button */
+    text-decoration: none;           /* Removes the default underline from <a> links. Makes it look more like a button and less like a regular hyperlink. */
+    padding: 10px 20px;              /* padding = space between button(element) conntent and button(element) border */
+    border-radius: 0px;              /* Controls how rounded the corners are. The higher the number the more round is the corner */
+    font-weight: bold;               /* Bold means the text appears thicker and darker than normal — it stands out more. With font-weight you can decide how the text will look, (How thin orlight it should look) */
+    transition: background-color 0.3s, transform 0.2s;  /* Adds a smooth animation when the button is hovered or focused.
+                                                            background-color 0.3s: fades the color change over 0.3 seconds.
+                                                            transform 0.2s: animates things like scale() (e.g. slight zoom on hover). */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);         /* Adds a shadow behind the button for depth. 0 (horizontal), 2px (vertical), 5px (blur), with slight transparency.
+                                                           Makes the button feel slightly elevated. */
+    font-family: "Arial", sans-serif;                   /* Text typ, it shows Arial, but if that doesn't exists, it falls back to any style from sans-serif */
+}
+
+.header-button-red {
+    display: inline-block;           
+    background-color: #d32f2f;
+    color: white;                  
+    text-decoration: none;           
+    padding: 10px 20px;              
+    border-radius: 0px;              
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-family: "Arial", sans-serif;
+}
+
+.header-button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.header-button-red:hover {
+    background-color: white;
+    color: #d32f2f;
+    cursor: pointer;
+}
+
+
+
+
+
+main {
+    background-color: #e9ecef;
+    flex: 1; /* This makes main grow to fill available space */
+}
+
+.main-interactors {
+    display: flex;
+    gap: 30px; /* This will make all the children of .nav-buttons line up in a row (horizontally) by default. */
+    flex-wrap: wrap; /* This tells the flex: "If there’s not enough space on one line, allow the items to wrap onto the next line." */
+    margin: 60px;         /* Align vertically in the middle */
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Important: sets positioning context. It allows an element to be moved relative to its original place on the site (I use it for the .Usb-identifier) */
+    z-index: 1; /* higher then other content */
+}
+
+.main-title {
+    font-family: "Arial", sans-serif;
+    font-weight: 100;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100px;
+    text-decoration-line: underline;
+    color: #9b233c;
+}
+
+.Usb-identifier {
+    position: absolute; /* This removes the element from the normal document flow, meaning:
+                            It won’t affect or be affected by surrounding elements.
+                            You can place it anywhere using top, right, bottom, and left.
+                            BUT: It positions itself relative to the nearest positioned ancestor */
+    bottom: 0;          /* This tells the absolutely positioned element to stick to the bottom of its positioned container. */
+    right: 0;           /* This makes the element stick to the right side of the container. */
+    z-index: -1;        /* Lower than other content */
+    pointer-events: none; /* prevents it from blocking clicks */
+}
+
+.main-button-image {
+    display: inline-block; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.main-button {
+    display: inline-block;
+    width: 450px;
+    background-color: white;
+    color: #9b233c;                  
+    text-decoration: none;           
+    padding: 10px 20px;              
+    border-radius: 0px;              
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-family: "Arial", sans-serif;
+}
+
+.main-button:hover {
+    background-color: #663399;
+    color: white;
+    cursor: pointer;
+}
+
+.main-button-image:hover {
+    background-color: #663399;
+    cursor: pointer;
+}
+
+
+
+
+  body {
+    height: 100vh; /* It sets the height of an element to 100% of the viewport height. "vh" means: 1vh = 1% of the height of the browser window. So 100vh = full screen height, no matter how much content is inside */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+
+
+
+
+
+
+
+
+.footer-container {
+    display: flex; /* display: flex; turns an element (like a <div>) into a flex container.
+                    That means its direct children are now arranged using flexbox rules, giving you powerful control over layout, spacing, alignment, and positioning. */
+    justify-content: space-between; /* Place the first item at the far left, the last item at the far right, and evenly space out the items in between. (Push logo left, buttons right) */
+    align-items: center; /* It tells the items to move to the center vertically inside the container (if the container is a row). */
+    padding: 0px 60px;
+}
+
+.footer-socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.social-icon {
+    color: black
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 30px;
+}
+
+.links {        
+    color: #9b233c;
+    text-decoration: none;
+    font-family: "Archivo", sans-serif;
+}
+
+.links:hover {           
+    color: #0d6efd;
+    cursor: pointer;
+}
+
+.social-icon:hover {
+    cursor: pointer;
+}
+
+.all-rights-reserved {
+    display: flex;
+    margin: 10px;
+}
+
+
+
+
+
+
+.abc {
+    font-family: "Archivo", sans-serif;
+    margin: 10px 40px;
+}
+
+.hr2 {
+    border: none;
+    border-top: 4px solid black;
+    margin: 0px 40px;
+  }
+
+  .main-studies {
+    color: #0d6efd;
+    display: flex;
+    flex-direction: column;
+    margin: 5px 40px;
+    font-family: "Archivo", sans-serif;
+  }
+
+  .main-studies:hover {
+    color: #9b233c;
+    cursor: pointer;
+    font-family: "Archivo", sans-serif;
+  }
+
